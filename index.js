@@ -33,9 +33,20 @@ function distanceTravelledInFeet(currentLocation, locationTravelled){
 }
 
 function calculatesFarePrice(start, destination){
-    let youPay
-    if( <= 400){
-        
+    const totalDistanceInFt = distanceTravelledInFeet(start, destination)
+    
+    if(totalDistanceInFt <= 400){
+        return 0 
+    }else if(totalDistanceInFt > 400 && totalDistanceInFt <= 2000){
+       const distancetravelled = totalDistanceInFt - 400 
+       return distancetravelled * .02
     }
+    else if(totalDistanceInFt > 2000 && totalDistanceInFt <= 2500){
+        return 25
+    }
+    else{
+        return 'cannot travel that far'
+    }
+        
 }
 
